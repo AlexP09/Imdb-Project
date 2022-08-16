@@ -2,3 +2,5 @@
 
 https://cinemagoer.readthedocs.io/en/latest/usage/series.html
 csv
+pandas
+worldcloud
