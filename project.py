@@ -10,18 +10,18 @@ movie = movies[0].movieID #retrieves the ID
 film=ia.get_movie(movies[0].movieID) #gets movie data
 filmdata=film['plot'][0] #retreives the 1st plot from imdb
 results = ia.get_movie_list("ls057339370") #pass the list to a variable
-for i in results:
-  MovieTitle=ia.get_movie(i[0].movieID)
-  Description=MovieTitle['plot'][0]
-  print(MovieTitle)
+# for i in results:
+#   MovieTitle=ia.get_movie(i.movieID)
+#   Description=MovieTitle['plot'][0]
+#   print(MovieTitle)
 
-# with open("plots.csv", "w") as file:
-#      writer=csv.DictWriter(file, fieldnames=["movie","plot"]) #variable for library to which we pass the new columns
-#      writer.writerow({"movie": "Movie", "plot": "Plot"}) #adds the headers
-#      for i in results:
-#         MovieTitle=ia.get_movie(i[0].movieID)
-#         Description=MovieTitle['plot'][0]
-#         writer.writerow({"movie":MovieTitle,"plot":Description}) #writes dictionary for each line in the first but with 3 columns
+with open("plots.csv", "w") as file:
+     writer=csv.DictWriter(file, fieldnames=["movie","plot"]) #variable for library to which we pass the new columns
+     writer.writerow({"movie": "Movie", "plot": "Plot"}) #adds the headers
+     for i in results:
+        MovieTitle=ia.get_movie(i.movieID)
+        Description=MovieTitle['plot'][0]
+        writer.writerow({"movie":MovieTitle,"plot":Description}) #writes dictionary for each line
 #def main():
 
 #def function_1():
