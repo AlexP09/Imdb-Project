@@ -1,3 +1,4 @@
+# WordCloud of an IMDb list 
 from imdb import Cinemagoer
 import csv
 import wordcloud
@@ -6,15 +7,16 @@ import sys
 import re
 # create an instance of the Cinemagoer class
 ia = Cinemagoer()
-results=[]
-
+results=[] #blank variable
+# Welcome the user, obtaing the input, and call the rest of the functions
 def main():
     print("Have you ever been curious to see what your favourite movies or tv-shows have in common?\nNow you can visualize the main topics that your motion pictures share!")
     prompt=input("Please input a public list URL: ")
     store_source_data(get_list(prompt)) 
     read_source_data() 
     build_wordcloud(read_source_data())
-    
+    print("Done!")
+# Receives the list provided by the user, makes sure that the list has the correct format using regex and storing the IMDb data to the blank variable
 def get_list(Imdblist):
     if not re.search(r"ls[0-9]*",Imdblist):
         sys.exit("Invalid format\nYou may want to check and see if your link contains a string starting with ls")
@@ -22,16 +24,16 @@ def get_list(Imdblist):
         listinput=re.search(r"(ls[0-9]*)",Imdblist).group(1)
     results = ia.get_movie_list(listinput)
     return results
-
+# Writes a csv where we will store the name and description of the elements in the list provided by the user(parsing with Cinemagoer)
 def store_source_data(IMDBlist):
-    with open("plots.csv", "w", newline='') as file: #writes a csv in which we'll store the name of the movies and the description
-     writer=csv.DictWriter(file, fieldnames=["movie","plot"]) #variable for library to which we pass the new columns
-     writer.writerow({"movie": "Movie", "plot": "Plot"}) #adds the headers
+    with open("plots.csv", "w", newline='') as file: 
+     writer=csv.DictWriter(file, fieldnames=["movie","plot"]) 
+     writer.writerow({"movie": "Movie", "plot": "Plot"}) 
      for i in IMDBlist:
-        MovieTitle=ia.get_movie(i.movieID) #gets movie Data for each element in the list
-        Description=MovieTitle['plot'][0] #retrieves the 1st plot from each element of the list
-        writer.writerow({"movie":MovieTitle,"plot":Description}) #writes dictionary for each line
-
+        MovieTitle=ia.get_movie(i.movieID) 
+        Description=MovieTitle['plot'][0] 
+        writer.writerow({"movie":MovieTitle,"plot":Description}) 
+# Open the csv file and retrieves only the descriptions (at this point) and stores them in a long string-necessary for wordcloud input
 def read_source_data():
     description=""
     with open ("plots.csv", "r", newline='') as datasource: #opens the file saved beforehand
@@ -39,7 +41,7 @@ def read_source_data():
                 for line in reader: #reiterates over line in csv-each new line is a dictionary
                     description +=" "+line['Plot'].lower()+" "
     return description
-
+# Builidng the wordcloud file using as few parameters due to code running time
 def build_wordcloud(words):   
     wordcloudMovies=wordcloud.WordCloud(width = 1000, height = 1000,
                 background_color =None,

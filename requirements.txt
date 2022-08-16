@@ -1,6 +1,6 @@
-#Any pip-installable libraries that your project requires must be listed, one per line, in a file called requirements.txt in the root of your project.
-
-https://cinemagoer.readthedocs.io/en/latest/usage/series.html
-csv
-pandas
-worldcloud
+from imdb import Cinemagoer
+import csv
+import wordcloud
+import matplotlib.pyplot as plt
+import sys
+import re
