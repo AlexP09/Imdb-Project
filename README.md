@@ -7,6 +7,7 @@
     research api of imdb or imdb library?
         Yes. Because IMDb doesn't have an official API, yet. https://github.com/kunalnagarco/imdb-scraper
         Cinemagoer module
+        maybe letterboxd? https://github.com/nmcassa/letterboxdpy
     2nd-store plots?
     research world cloud libraries
     learn to use the api/libraries
