@@ -1,6 +1,6 @@
-from imdb import Cinemagoer
-import csv
-import wordcloud
-import matplotlib.pyplot as plt
-import sys
-import re
+Cinemagoer
+csv
+wordcloud
+matplotlib.pyplot
+sys
+re
