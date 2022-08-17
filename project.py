@@ -41,7 +41,7 @@ def get_list(Imdblist):
 
 # Writes a csv where we will store the name and description of the elements in the list provided by the user(parsing with Cinemagoer)
 def store_source_data(IMDBlist):
-    if IMDBlist==[]:
+    if IMDBlist == []:
         sys.exit(
             "No elements could be retrieved from the URL given. Please make sure that the list is public!"
         )
@@ -56,12 +56,12 @@ def store_source_data(IMDBlist):
             except IMDbError as error:
                 print("Something went wrong. Please contact project creator.")
             except KeyError:
-                Description=""
+                Description = ""
 
 
 # Open the csv file and retrieves only the descriptions (at this point) and stores them in a long string-necessary for wordcloud input
 def read_source_data():
-    description =""
+    description = ""
     with open(
         "plots.csv", "r", newline=""
     ) as datasource:  # opens the file saved beforehand

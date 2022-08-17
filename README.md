@@ -1,5 +1,5 @@
 # WordCloud of an IMDb list 
-    #### Video Demo:  <URL HERE>
+    #### Video Demo:  https://youtu.be/pKjz6kFXeK8
     #### Description: The project aims to delve into the world of data analysis, since it is a developing area for both future career options as well as individuals' interests.
     Thus, the project will try to output a visual graphic related to movies, since the latter is another area I am interested in.
     ![Image](https://user-images.githubusercontent.com/75215512/184935253-644a77db-a513-4ae8-b9ab-b7ae98e497b2.png) ![Image](https://user-images.githubusercontent.com/75215512/184935311-e31ad180-f395-4f3d-99fa-fa3005dca64c.png)
